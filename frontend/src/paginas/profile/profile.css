@@ -1,0 +1,58 @@
+h1{
+  padding: 10px;
+}
+
+.registration-form {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  flex-direction: row;
+  justify-content: center;
+  font-family: "Arial", sans-serif;
+  width: 80%;
+  padding: 20px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  background: linear-gradient(rgba(73, 130, 194, 0.8), rgba(118, 192, 171, 0.5));
+  background-color: #aac0dc;
+  border: #000000;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+.registration-form .form-group {
+  margin-right: 1px; /* Agregamos un margen derecho para separar los elementos */
+}
+
+.registration-form .label {
+  margin-bottom: 5px;
+  font-weight:lighter;
+  color: aliceblue;
+}
+
+.registration-form .input {
+  padding: 10px;
+  border-radius: 0%;
+  width: 80%;
+}
+
+.registration-form .button {
+  padding: 10px 20px;
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.registration-form .success-message {
+  color: rgb(77, 0, 128);
+  margin-top: 10px;
+}
+
+.registration-form .error-message {
+  color: rgb(132, 0, 255);
+  margin-top: 10px;
+}
+

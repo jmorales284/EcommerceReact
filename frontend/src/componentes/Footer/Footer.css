@@ -1,0 +1,49 @@
+#footer{
+    text-align: center;
+    display: flex;
+    width: 100%;
+    min-height: 25vh;
+    box-shadow: 0 -2px 6px #060a08a4;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#footer h3{
+    margin-top: 10px;
+}
+.contact{
+    display: flex;
+    flex-direction: column;
+    width: 33.3%;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+.adress{
+    display: flex;
+    flex-direction: column;
+    width: 33.3%;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+.socialMedia{
+    display: flex;
+    flex-direction: column;
+    width: 33.3%;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+@media screen and (max-Width: 700px){
+    #footer{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+ 
+}

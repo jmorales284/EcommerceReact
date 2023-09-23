@@ -1,0 +1,254 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: bwx6bl80n95s6athhfkf-mysql.services.clever-cloud.com:3306
+-- Generation Time: Jul 14, 2023 at 03:18 AM
+-- Server version: 8.0.15-5
+-- PHP Version: 7.2.34
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `bwx6bl80n95s6athhfkf`
+--
+-- --------------------------------------------------------
+--
+-- Table structure for table `Detalle_Pedidos`
+--
+CREATE TABLE `Detalle_Pedidos` (
+  `ID_Pedido` int(11) DEFAULT NULL,
+  `ID_Producto` int(11) DEFAULT NULL,
+  `Cantidad` int(11) DEFAULT NULL,
+  `Subtotal` decimal(10,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Detalle_Pedidos`
+--
+
+INSERT INTO `Detalle_Pedidos` (`ID_Pedido`, `ID_Producto`, `Cantidad`, `Subtotal`) VALUES
+(NULL, 1, 1, '491000.00'),
+(43, 2, 1, '304000.00'),
+(43, 3, 1, '475000.00'),
+(43, 4, 1, '399000.00'),
+(43, 5, 1, '405000.00'),
+(NULL, 3, 1, '475000.00'),
+(44, 3, 3, '1425000.00'),
+(43, 1, 2, '982000.00'),
+(44, 2, 1, '394000.00'),
+(44, 2, 1, '394000.00'),
+(NULL, 3, 1, '475000.00'),
+(45, 3, 1, '475000.00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Pedidos`
+--
+
+CREATE TABLE `Pedidos` (
+  `ID_Pedido` int(11) NOT NULL,
+  `ID_Usuario` int(11) DEFAULT NULL,
+  `Fecha_Pedido` date DEFAULT NULL,
+  `Total` decimal(10,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Pedidos`
+--
+
+INSERT INTO `Pedidos` (`ID_Pedido`, `ID_Usuario`, `Fecha_Pedido`, `Total`) VALUES
+(43, 7, '2023-07-14', NULL),
+(44, 13, '2023-07-14', NULL),
+(45, 16, '2023-07-14', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Productos`
+--
+
+CREATE TABLE `Productos` (
+  `ID_Producto` int(11) NOT NULL,
+  `Nombre_Producto` varchar(50) DEFAULT NULL,
+  `Descripcion` text CHARACTER SET utf8 COLLATE utf8_general_ci,
+  `Precio` decimal(10,2) DEFAULT NULL,
+  `Imagen_1` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `Imagen_2` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `Imagen_3` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `Max` int(10) NOT NULL,
+  `Min` int(10) NOT NULL,
+  `Stock` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Productos`
+--
+
+INSERT INTO `Productos` (`ID_Producto`, `Nombre_Producto`, `Descripcion`, `Precio`, `Imagen_1`, `Imagen_2`, `Imagen_3`, `Max`, `Min`, `Stock`) VALUES
+(1, 'Nike LD Waffle Sacai Black Nylon', 'Nike tenis LDV WAFFLE Puntera redonda, cierre con agujetas en la parte delantera y plantilla con logo. Composición Exterior: Cuero 100%, Ante 100%, Nylon 100% Forro: Poliéster 100% Suela: Goma 100% ID de producto ID de FARFETCH: 15252221 ID de la Marca: BV0073002', '491000.00', 'https://cdn-images.farfetch-contents.com/15/25/22/21/15252221_26362810_1000.jpg', 'https://cdn-images.farfetch-contents.com/15/25/22/21/15252221_26362811_1000.jpg', 'https://cdn-images.farfetch-contents.com/15/25/22/21/15252221_26362812_1000.jpg', 50, 5, 20),
+(2, 'Nike X Off-White tenis Air Force 1 Mid Pine Green.', 'Nike X Off-White\r\ntenis Air Force 1 Mid Pine Green\r\n\r\nVerde, blanco, cuero, detalle del logo Swoosh característico, suela con tacos suaves, etiqueta Zip Tie característica, logo estampado en la parte posterior, logo bordado en la lengüeta, diseño por el tobillo, tira en el tobillo con cierre autoadherente, cierre con agujetas en la parte delantera, puntera perforada, puntera redonda y suela plana de goma.\r\n\r\nComposición\r\nExterior: Cuero 97%, Poliéster 3%\r\n\r\nForro: Poliéster 100%\r\n\r\nSuela: Goma 100%\r\n\r\nID de producto\r\nID de FARFETCH: 18803209\r\n\r\nID de la Marca: OMIA256G22MAT0015501', '394000.00', 'https://cdn-images.farfetch-contents.com/18/80/32/09/18803209_45274162_1000.jpg', 'https://cdn-images.farfetch-contents.com/18/80/32/09/18803209_45274163_1000.jpg', 'https://cdn-images.farfetch-contents.com/18/80/32/09/18803209_45271904_1000.jpg', 50, 5, 20),
+(3, 'Nike Air Force 1 Low Supreme Black', 'Nike\r\ntenis Air Force 1 Low \"Mini Box Logo Black\" de Nike x Supreme\r\n\r\nPuntera redonda, suela plana de goma, cierre con agujetas en la parte delantera, detalle del logo y plantilla con logo. Estos estilos son suministrados por un marketplace de tenis, el cual ofrece los artículos más codiciados y difíciles de encontrar de todo el mundo.\r\n\r\nComposición\r\nExterior: Cuero 100%\r\n\r\nForro: Poliéster 100%\r\n\r\nSuela: Goma 100%\r\n\r\nID de producto\r\nID de FARFETCH: 15252506\r\n\r\nID de la Marca: CU9225001', '475000.00', 'https://cdn-images.farfetch-contents.com/15/25/25/06/15252506_26432836_1000.jpg', 'https://cdn-images.farfetch-contents.com/15/25/25/06/15252506_26432837_1000.jpg', 'https://cdn-images.farfetch-contents.com/15/25/25/06/15252506_26432840_1000.jpg', 50, 5, 15),
+(4, 'Nike LD Waffle Sacai White Nylon', 'Nike\r\ntenis LDWaffle de Nike x Sacai\r\n\r\nCaracterísticas\r\ncolor blanco \r\ncuero \r\npuntera redonda\r\nsuela plana de goma\r\nplantilla con logo\r\ncierre con agujetas en la parte delantera\r\nEstos estilos son suministrados por un marketplace de tenis, el cual ofrece los artículos más codiciados y difíciles de encontrar de todo el mundo.\r\n\r\nComposición\r\nSuela: Goma 100%\r\n\r\nOuter: Cuero 100%, Ante 100%, Nylon 100%\r\n\r\nForro: Poliéster 100%\r\n\r\nID de producto\r\nID de FARFETCH: 15252225\r\n\r\nID de la Marca: BV0073101', '399000.00', 'https://cdn-images.farfetch-contents.com/15/25/22/25/15252225_26362814_1000.jpg', 'https://cdn-images.farfetch-contents.com/15/25/22/25/15252225_26362815_1000.jpg', 'https://cdn-images.farfetch-contents.com/15/25/22/25/15252225_26362816_1000.jpg', 50, 5, 15),
+(5, 'Nike Dunk Low SP Kentucky (2021)', 'Nike\r\ntenis Dunk Low Retro\r\n\r\nTenis Dunk Low Retro de Nike con diseño color block, puntera redonda, cierre con cordones en la parte delantera, suela blanca de goma, plantilla con logo y logo de Nike. Supplied by a premier sneaker marketplace dealing with unworn, already sold out, in demand rarities. Each product is rigorously inspected by experienced experts guaranteeing authenticity.\r\n\r\nComposición\r\nExterior: Cuero 100%\r\n\r\nForro: Poliéster 100%\r\n\r\nSuela: Goma 100%\r\n\r\nID de producto\r\nID de FARFETCH: 15288062\r\n\r\nID de la Marca: CU1726100', '405000.00', 'https://cdn-images.farfetch-contents.com/15/28/80/62/15288062_26528343_1000.jpg', 'https://cdn-images.farfetch-contents.com/15/28/80/62/15288062_26528345_1000.jpg', 'https://cdn-images.farfetch-contents.com/15/28/80/62/15288062_26528344_1000.jpg', 50, 5, 15),
+(6, 'Nike Dunk Low Off-White University', 'Nike X Off-White\r\ntenis Dunk Low University Gold\r\n\r\nCaracterísticas\r\ncolor azul\r\nsuela de goma\r\nagujetas de color naranja\r\ndiseño a paneles en contraste\r\npuntera redonda\r\nComposición\r\nExterior: Cuero 100%\r\n\r\nForro: Poliéster 100%\r\n\r\nSuela: Goma 100%\r\n\r\nID de producto\r\nID de FARFETCH: 14814295\r\n\r\nID de la Marca: CT0856700', '285000.00', 'https://cdn-images.farfetch-contents.com/14/81/42/95/14814295_23875405_1000.jpg', 'https://cdn-images.farfetch-contents.com/14/81/42/95/14814295_23875407_1000.jpg', 'https://cdn-images.farfetch-contents.com/14/81/42/95/14814295_23875408_1000.jpg', 50, 5, 15),
+(7, 'Nike Air Max 2 Light Atmos', 'Nike\r\ntenis Air Max 2 Light Special Box de Nike x Atmos\r\n\r\nPuntera redonda, suela plana de goma, cierre con agujetas en la parte delantera, plantilla con logo, detalle del logo y suela de goma con amortiguación Max Air. Estos estilos son suministrados por un marketplace de tenis, el cual ofrece los artículos más codiciados y difíciles de encontrar de todo el mundo.\r\n\r\nComposición\r\nOuter: Acrílico 100%, Nylon 100%, Poliéster 100%, Poliuretano Termoplástico (TPU) 100%\r\n\r\nForro: Poliéster 100%\r\n\r\nSuela: Goma 100%\r\n\r\nID de producto\r\nID de FARFETCH: 15463811\r\n\r\nID de la Marca: BV7406001SPECIALBOX', '360000.00', 'https://cdn-images.farfetch-contents.com/15/46/38/11/15463811_27884896_1000.jpg', 'https://cdn-images.farfetch-contents.com/15/46/38/11/15463811_27884894_1000.jpg', 'https://cdn-images.farfetch-contents.com/15/46/38/11/15463811_27884897_1000.jpg', 50, 5, 15),
+(8, 'Nike Air Force 1 Low CLOT Blue Silk', 'Nike\r\ntenis Air Force 1 Blue Silk Nike x Clot\r\n\r\nTenis Air Force 1 Blue Silk Nike x Clot en poliéster de Nike.\r\n\r\nComposición\r\nForro: Nylon 100%\r\n\r\nExterior: Poliéster 100%\r\n\r\nSuela: Goma 100%\r\n\r\nID de producto\r\nID de FARFETCH: 14688318\r\n\r\nID de la Marca: CJ5290400', '355000.00', 'https://cdn-images.farfetch-contents.com/14/68/83/18/14688318_23197823_1000.jpg', 'https://cdn-images.farfetch-contents.com/14/68/83/18/14688318_23197824_1000.jpg', 'https://cdn-images.farfetch-contents.com/14/68/83/18/14688318_23197825_1000.jpg', 50, 5, 15),
+(9, 'Nike Air Max 90 OG Volt (2020)', 'Nike\r\ntenis Air Max 90\r\n\r\nDiseño a paneles, parche del logo en la lengüeta, detalle del logo, plantilla con logo, suela plana de goma, puntera perforada, suela Air Max y logo bordado en la parte posterior. Material: Cuero. Estos estilos son suministrados por un marketplace de tenis, el cual ofrece los artículos más codiciados y difíciles de encontrar de todo el mundo..\r\n\r\nComposición\r\nExterior: Ante 100%, Nylon 100%\r\n\r\nSuela: Goma 100%\r\n\r\nForro: Tela 100%\r\n\r\nID de producto\r\nID de FARFETCH: 15184664\r\n\r\nID de la Marca: CD0881', '799000.00', 'https://cdn-images.farfetch-contents.com/15/18/46/64/15184664_43725569_1000.jpg', 'https://cdn-images.farfetch-contents.com/15/18/46/64/15184664_43724681_1000.jpg', 'https://cdn-images.farfetch-contents.com/15/18/46/64/15184664_43725570_1000.jpg', 50, 5, 15),
+(10, 'Nike Dunk High Varsity Maize', 'Nike\r\ntenis Dunk High SP Varsity Maize\r\n\r\nDiseño a paneles, detalle del logo, diseño perforado, logo estampado en la lengüeta , lengüeta en la parte posterior, puntera redonda, cierre con agujetas en la parte delantera, diseño por el tobillo y suela de goma. Material: Cuero. Estos estilos son suministrados por un marketplace de tenis, el cual ofrece los artículos más codiciados y difíciles de encontrar de todo el mundo.\r\n\r\nComposición\r\nExterior: Cuero 100%\r\n\r\nForro: Poliéster 100%\r\n\r\nSuela: Goma 100%\r\n\r\nID de producto\r\nID de FARFETCH: 16157988\r\n\r\nID de la Marca: CZ8149002', '501000.00', 'https://cdn-images.farfetch-contents.com/16/15/79/88/16157988_31381502_1000.jpg', 'https://cdn-images.farfetch-contents.com/16/15/79/88/16157988_31380409_1000.jpg', 'https://cdn-images.farfetch-contents.com/16/15/79/88/16157988_31382667_1000.jpg', 50, 5, 15);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Roles`
+--
+
+CREATE TABLE `Roles` (
+  `ID_Rol` int(11) NOT NULL,
+  `Nombre_Rol` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Roles`
+--
+
+INSERT INTO `Roles` (`ID_Rol`, `Nombre_Rol`) VALUES
+(1, 'Administrador'),
+(2, 'Usuario');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Usuarios`
+--
+
+CREATE TABLE `Usuarios` (
+  `ID_Usuario` int(11) NOT NULL,
+  `Nombre` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `Apellido` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `Email` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `Direccion` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `Contraseña` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `Telefono` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `ID_Rol` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Usuarios`
+--
+
+INSERT INTO `Usuarios` (`ID_Usuario`, `Nombre`, `Apellido`, `Email`, `Direccion`, `Contraseña`, `Telefono`, `ID_Rol`) VALUES
+(1, 'Admin', 'Admin', 'admin@gmail.com', 'Calle 32 # 16-30', '1234', '3125467823', 1),
+(3, 'John', 'Doe', 'johndoe@example.com', 'Calle 23 # 16-303', 'secreta123', '1234567890', 2),
+(4, 'Diego', 'Fernando Santana', 'die@gmail.com', 'cuidad jardin', 'pepito', '3223922128', 2),
+(5, 'Jhans Brandon', 'Velez Cortes', 'jhansbrandon98@gmail.com', 'Calle 7 # 8-21, Barrio el paraíso', '1234567890', '3116333208', 2),
+(6, 'stiven', 'castro ', 'stiven.castro@utp.edu.co', 'si fjggguvv', '123456789', '3005082441', 2),
+(7, 'sergio', 'andres', 'v@gmail.com', 'fvcvcxczvcx', '1', '310', 1),
+(11, 'John', 'Doe', 'johndoe@example.comp', 'ff', 'secreta123pp', '1234567890', 2),
+(12, 'John', 'Doe', 'johndoe@examplqelll', 'ff', 'secreta123p11', '1111', 2),
+(13, 'juan', 'morales', 'juan@gmail.com', 'casa', '2', '3136331635', 1),
+(14, 'rttrtt', 'trttt', 'rttr@utp.edu.co', 'rertte 67', '12', '31558', 2),
+(15, 'hola', 'pvp', 'gg@gmail.com', '1234', '23', '1234', 2),
+(16, 'pipe', 'cacorro', 'pipe@gmail.com', 'casa', '3', '1234567890', 2);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `Detalle_Pedidos`
+--
+ALTER TABLE `Detalle_Pedidos`
+  ADD KEY `ID_Pedido` (`ID_Pedido`),
+  ADD KEY `ID_Producto` (`ID_Producto`);
+
+--
+-- Indexes for table `Pedidos`
+--
+ALTER TABLE `Pedidos`
+  ADD PRIMARY KEY (`ID_Pedido`),
+  ADD KEY `ID_Usuario` (`ID_Usuario`);
+
+--
+-- Indexes for table `Productos`
+--
+ALTER TABLE `Productos`
+  ADD PRIMARY KEY (`ID_Producto`);
+
+--
+-- Indexes for table `Roles`
+--
+ALTER TABLE `Roles`
+  ADD PRIMARY KEY (`ID_Rol`);
+
+--
+-- Indexes for table `Usuarios`
+--
+ALTER TABLE `Usuarios`
+  ADD PRIMARY KEY (`ID_Usuario`),
+  ADD KEY `ID_Rol` (`ID_Rol`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `Pedidos`
+--
+ALTER TABLE `Pedidos`
+  MODIFY `ID_Pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
+--
+-- AUTO_INCREMENT for table `Productos`
+--
+ALTER TABLE `Productos`
+  MODIFY `ID_Producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `Roles`
+--
+ALTER TABLE `Roles`
+  MODIFY `ID_Rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `Usuarios`
+--
+ALTER TABLE `Usuarios`
+  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `Detalle_Pedidos`
+--
+ALTER TABLE `Detalle_Pedidos`
+  ADD CONSTRAINT `Detalle_Pedidos_ibfk_1` FOREIGN KEY (`ID_Pedido`) REFERENCES `Pedidos` (`ID_Pedido`),
+  ADD CONSTRAINT `Detalle_Pedidos_ibfk_2` FOREIGN KEY (`ID_Producto`) REFERENCES `Productos` (`ID_Producto`);
+
+--
+-- Constraints for table `Pedidos`
+--
+ALTER TABLE `Pedidos`
+  ADD CONSTRAINT `Pedidos_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `Usuarios` (`ID_Usuario`);
+
+--
+-- Constraints for table `Usuarios`
+--
+ALTER TABLE `Usuarios`
+  ADD CONSTRAINT `Usuarios_ibfk_1` FOREIGN KEY (`ID_Rol`) REFERENCES `Roles` (`ID_Rol`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
